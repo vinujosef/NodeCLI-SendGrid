@@ -3,3 +3,5 @@
 .npmignore
 public/images/
 public/javascripts/
+"sendgride.env" 
+"sendgrid.env" 

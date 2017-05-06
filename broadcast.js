@@ -34,23 +34,31 @@ let stream = fs.createReadStream(program.list)
     .pipe(parse({ delimiter : ','}));
 
 let __sendEmail = function (to, from, subject, callback) {
-    let template = "Hi, how are you doing?";
     let helper = require('sendgrid').mail;
     let fromEmail = new helper.Email(from.email, from.name);
     let toEmail = new helper.Email(to.email, to.name);
-    let body = new helper.Content("text/plain", template);
-    let mail = new helper.Mail(fromEmail, subject, toEmail, body);
+    let content = new helper.Content('text/plain', 'Hello, Email !');
+    let mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
+    //Remove process.env.SENDGRID_API_KEY with the generate api from SendGrid while using the app
     let sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
     let request = sg.emptyRequest({
         method: 'POST',
         path: '/v3/mail/send',
-        body: mail.toJSON(),
+        body: mail.toJSON()
     });
 
     sg.API(request, function(error, response) {
         if (error) { return callback(error); }
         callback();
+
+        // Alternative for finding error
+        /*if (error) {
+            console.log('Error response received');
+        }
+        console.log(response.statusCode);
+        console.log(response.body);
+        console.log(response.headers);*/
     });
 };
 
