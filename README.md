@@ -1,14 +1,12 @@
 # NodeCLI-SendGrid
 Node CLI App for sending email using SendGrid API
 
-This is an interactive command line application built using Node JS, and with the help of SendGrid API we will send emails to a list of users.
+This is an interactive command line application built using Node JS. With the help of SendGrid API, the app will send emails to a list of users as specified in the "input/employees.csv" file.
 
 Once the application loads :
-* it will output the list of users to whom the email will be send
+* the list of users to whom the email will be send is printed (from "input/employees.csv" file)
 * ask sender's email, name and subject of mail as input
 
-
-In this program, the list of users to whom the email should be send is saved in Input -> employees.csv
 
 ## Usage
 
@@ -17,4 +15,4 @@ In this program, the list of users to whom the email should be send is saved in 
 
 
 ## NOTE:
-The API key used here is not valid anymore, so kindly create an new API key.
+The Sendgrid API key used here should be changed with a new one.
