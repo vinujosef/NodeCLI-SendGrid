@@ -1,7 +1,1 @@
-# Created by .ignore support plugin (hsz.mobi)
-.gitignore
-.npmignore
-public/images/
-public/javascripts/
-"sendgride.env" 
-"sendgrid.env" 
+node_modules/
